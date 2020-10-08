@@ -99,9 +99,9 @@ int main() {
 	//// Lecture 3 starts here
 
 	static const GLfloat points[] = {
-		-0.5f, -0.5f, 0.5f,
-		0.5f, -0.5f, 0.5f,
-		-0.5f, 0.5f, 0.5f
+		-0.5f, -0.5f, 0.0f,
+		0.5f, -0.5f, 0.0f,
+		0.0f, 0.5f, 0.0f
 	};
 
 	static const GLfloat colors[] = {
@@ -192,7 +192,9 @@ int main() {
 		Model = glm::mat4(1.0f);
 		keyboard();
 
-		Model = glm::rotate(Model, glm::radians(rotY), glm::vec3(0.0f, 1.0f, 0.0f));
+		Model = glm::translate(Model, glm::vec3(0.0f, 0.5f, 0.0f));
+		Model = glm::rotate(Model, glm::radians(rotY), glm::vec3(0.0f, 0.0f, 1.0f));
+		Model = glm::translate(Model, glm::vec3(0.0f, -0.5f, 0.0f));
 
 		mvp = Projection * View * Model;
 		//rotY = 0.0;
